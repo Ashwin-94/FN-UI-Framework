@@ -33,6 +33,7 @@ const FNDialog: FC<FNDialogProps> = ({
     <div>
       {footerButtons.map((button, index) => (
         <Button
+          type="button"
           key={index}
           label={button.label}
           icon={button.icon}

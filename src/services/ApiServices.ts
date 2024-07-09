@@ -1,6 +1,7 @@
 import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 import store from "../store/store"; // Import the Redux store to access the auth state
 import { addToast } from "../store/toastSlice"; // Import the action to add a toast notification
+import qs from 'qs'; // Import the qs library
 
 const BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
@@ -20,7 +21,7 @@ class ApiService {
       (config) => {
         const state = store.getState();
         const token = state.auth?.user?.access_token;
-        
+
         if (token) {
           config.headers.Authorization = `Bearer ${token}`;
         }
@@ -60,9 +61,11 @@ class ApiService {
   }
 
   // Generic GET method
-  async get<T>(url: string, config?: AxiosRequestConfig): Promise<AxiosResponse<T>> {
+  async get<T>(url: string, params?: any, config?: AxiosRequestConfig): Promise<AxiosResponse<T>> {
     try {
-      return await this.axiosInstance.get<T>(url, config);
+      const queryString = qs.stringify(params);
+      const fullUrl = `${url}?${queryString}`;
+      return await this.axiosInstance.get<T>(fullUrl, config);
     } catch (error) {
       this.handleApiError(error);
       throw error;

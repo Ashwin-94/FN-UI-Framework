@@ -13,9 +13,9 @@
   },
   "Dialog": {
     "buttonLabel": "Add User",
-    "header": "Proceed with Add User",
-    "confirmButton": "Yes",
-    "rejectButton": "No"
+    "header": "Add User",
+    "confirmButton": "Add User",
+    "rejectButton": "Cancel"
   },
   "general": {
     "appTitle": "FN-UI",

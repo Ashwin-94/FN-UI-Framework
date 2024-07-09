@@ -1,4 +1,5 @@
 export const urlConfig = {
   userList: "v1/employees/allEmployees",
-  login: "/token",
+  addUser: "v1/employees/addEmployee",
+  login: "token",
 };
