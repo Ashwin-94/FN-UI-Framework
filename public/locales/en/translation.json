@@ -28,5 +28,27 @@
   },
   "fileUpload": {
     "label": "Drag and drop files to here to upload."
+  },
+  "propertyDetails": {
+    "requestRentHeader": "Rent Request",
+    "requestRentContent": "Do you want to Request?",
+    "sendButton": "Send",
+    "cancelButton": "Cancel",
+    "deletePropertyHeader": "Delete Property",
+    "deletePropertyContent": "Do you want to Delete this Property?",
+    "deleteButton": "Delete",
+    "propertyImageAlt": "property-image",
+    "leaseInfoHeader": "Lease Info",
+    "startDate": "Start Date",
+    "endDate": "End Date",
+    "tenantHeader": "Tenant",
+    "addTenantButton": "Add Tenant",
+    "activityHeader": "Activity",
+    "requestRentButton": "Request Rent",
+    "editButton": "Edit",
+    "homeTab": "Home",
+    "propertyTab": "Property",
+    "historyTab": "History",
+    "profileTab": "Profile"
   }
 }

@@ -98,6 +98,12 @@ const menuJson: Menu[] = [
       },
     ],
   },
+  {
+    label: "Property Details",
+    icon: "pi pi-warehouse",
+    access: ["admin"],
+    url: "/property-details"
+  },
 ];
 
 function filterMenuByAccess(menu: Menu[], role: string): Menu[] {

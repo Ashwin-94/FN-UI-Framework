@@ -41,10 +41,11 @@ import Layout from "./pages/Layout/Layout";
 import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
 import { filteredRouteData } from "./services/MenuJSON";
 import ToastService from "./services/Toaster/ToasterService";
+import PropertyDetails from "./pages/Property/PropertyDetails";
 
 setupIonicReact();
 const App: React.FC = () => {
-  const { t } = useTranslation();
+  // const { t } = useTranslation();
   const dispatch: AppDispatch = useDispatch();
   const { user } = useSelector((state: RootState) => state.auth);
 
@@ -53,42 +54,42 @@ const App: React.FC = () => {
   }, [dispatch]);
 
   return (
-    <Suspense
-      fallback={
-        <div className="flex w-screen h-screen">{t("general.loading")}</div>
-      }
-    >
-      <FNThemeSidebar />
-      <I18nextProvider i18n={i18n}></I18nextProvider>
-      <IonApp className="m-0 justify-content-start">
-        <Router>
-          <Routes>
-            {/* Routes that should include the header and footer */}
-            <Route element={<Layout />}>
-              {filteredRouteData.map((m, i) => {
-                return <Route
-                key={`route-index-${i}`}
-                  path={m.url}
-                  element={
-                    <ProtectedRoute
-                      component={m.component ? m.component : ErrorPage}
-                      title={m.label}
-                      breadcrumb={m.breadcrumb}
-                      access={m.access}
+        <Suspense
+          fallback={
+            <div className="flex w-screen h-screen">loading ...</div>
+          }
+        >
+          <FNThemeSidebar />
+          <I18nextProvider i18n={i18n}></I18nextProvider>
+          <IonApp className="m-0 justify-content-start">
+            <Router>
+              <Routes>
+                {/* Routes that should include the header and footer */}
+                <Route element={<Layout />}>
+                  {filteredRouteData.map((m, i) => {
+                    return <Route
+                      key={`route-index-${i}`}
+                      path={m.url}
+                      element={
+                        <ProtectedRoute
+                          component={m.component ? m.component : ErrorPage}
+                          title={m.label}
+                          breadcrumb={m.breadcrumb}
+                          access={m.access}
+                        />
+                      }
                     />
-                  }
-                />
-              })}
-            </Route>
-            <Route path="/" element={<Login />} />
+                  })}
+                </Route>
+                <Route path="/" element={<Login />} />
+                <Route path="/property-details" element={<PropertyDetails />} />
+                <Route path="*" element={<ErrorPage />} />
+              </Routes>
+            </Router>
+          </IonApp>
 
-            <Route path="*" element={<ErrorPage />} />
-          </Routes>
-        </Router>
-      </IonApp>
-     
-      <ToastService />
-    </Suspense>
+          <ToastService />
+        </Suspense>
   );
 };
 

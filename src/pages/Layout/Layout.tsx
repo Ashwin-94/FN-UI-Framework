@@ -1,7 +1,6 @@
 import React, { useState } from "react";
-import Routing from "./Routing/Routing";
 import SideBar from "./SideBar/SideBar";
-import { BrowserRouter, Outlet } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import "./Layout.scss";
 import { Header } from "./Header/Header";
 const Layout: React.FC = () => {

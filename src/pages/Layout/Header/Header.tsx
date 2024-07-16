@@ -68,6 +68,9 @@ export const Header: React.FC<HeaderProps> = ({
         <img src={smlogo} className="h-2rem block sm:hidden" alt="logo" />
       </div>
       <div className="flex align-items-center gap-3">
+      <span className="h-2rem block font-bold text-bluegray-700 text-xl">Property Details</span>
+      </div>
+      <div className="flex align-items-center gap-3">
         <FNInput
           placeholder="Search"
           type="text"
