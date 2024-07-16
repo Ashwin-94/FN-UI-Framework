@@ -35,6 +35,7 @@ export interface FNDataTableProps {
   globalFilterFields?: string[];
   header?: React.ReactNode;
   filter?: boolean;
+  search?: boolean;
 }
 
 const FNDataTable: React.FC<FNDataTableProps> = ({
@@ -67,6 +68,7 @@ const FNDataTable: React.FC<FNDataTableProps> = ({
   globalFilterFields = [],
   header = null,
   filter = false,
+  search = false,
 }) => {
   const { t } = useTranslation();
   const [globalFilter, setGlobalFilter] = useState<string>("");
@@ -113,7 +115,7 @@ const FNDataTable: React.FC<FNDataTableProps> = ({
       rows={rows}
       globalFilter={globalFilter}
       globalFilterFields={globalFilterFields}
-      header={header ? header : renderHeader()}
+      header={search ? renderHeader() : null}
     >
       {dynamicColumns.map((col: any) => (
         <Column

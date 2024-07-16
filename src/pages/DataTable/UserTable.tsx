@@ -43,6 +43,7 @@ const UserTable: React.FC = () => {
     sortable: true,
     globalFilterFields: ["id", "name", "phonenumber", "createdAt"],
     filter: true,
+    search: true,
   };
 
   return (
